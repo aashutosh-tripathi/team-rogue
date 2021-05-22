@@ -1,0 +1,46 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+    integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+<div class="fab-container">
+    <div class="fab fab-menu"  joyrideStep="4"  [stepContent]="customContent">
+        <i class="bi bi-question-circle-fill" pBadge value="{{unreadCount!=-1?unreadCount:1}}"></i>
+    
+        <ng-template #customContent>
+            You can click here to:
+            <ul>
+                <li>Interact with the Chatbot and get quick replies to your questions</li>
+                <li>See new updates and announcements</li>
+                <li>Suggest a feature/service & give feedback</li>
+                <li>Report a bug you found</li>
+                </ul>
+        </ng-template>
+    </div>
+
+    <ul class="fab-options">
+        <li (click)="shownotifications()">
+            
+            <span class="fab-label">Announcements</span>
+            <div class="fab-icon-holder">
+                <i class="bi bi-bell-fill" pBadge value="{{unreadCount!=-1?unreadCount:1}}"></i>
+            </div>
+    </li>
+        <li (click)="showchatbot()">
+            
+                <span class="fab-label">Chatbot</span>
+                <div class="fab-icon-holder">
+                    <i class="bi bi-chat-left-dots-fill"></i>
+                </div>
+        </li>
+        <li (click)="showfeedback()">
+            <span class="fab-label">Provide Feedback</span>
+            <div class="fab-icon-holder">
+                <i class="bi bi-emoji-laughing-fill"></i>
+            </div>
+        </li>
+        <li (click)="showbugreport()">
+            <span class="fab-label">Bug Report</span>
+            <div class="fab-icon-holder">
+                <i class="bi bi-bug-fill"></i>
+            </div>
+        </li>
+    </ul>
+</div>

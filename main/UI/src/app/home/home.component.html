@@ -1,0 +1,13 @@
+<div class="d-flex justify-content-center" style="margin-top: 200px;">
+    
+    <h1> Welcome to Airbus</h1>
+    </div>
+    <div class="d-flex justify-content-center mt-5">
+    <button joyrideStep="5"  [stepContent]="customContent"  (click)="shopNow()" pButton icon="pi pi-shopping-cart" type="button" label="Shop Now!" class="p-button-outline p-button-sm p-button-primary mr-2">
+</button>
+<ng-template #customContent>
+    You can also click here to navigate to Shopping Page
+</ng-template>
+    </div>
+
+

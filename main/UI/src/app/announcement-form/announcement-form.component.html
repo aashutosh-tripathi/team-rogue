@@ -1,0 +1,34 @@
+
+<div class="mb-3 mt-2">
+    <a class="nav-link" routerLink="/admin" routerLinkActive="active"> <- Back to Admin Console</a>
+</div>
+
+<div class="container">
+    <div class="col-md-6">
+        <form (ngSubmit)="onSubmit()" [formGroup]="notificationForm" novalidate>
+            <div class="form-group mb-4">
+                <label for="description"><strong>Announcement<span class="text-danger">*</span></strong></label>
+                <input type="text" formControlName="description" class="form-control"
+                    [ngClass]="{'is-valid':(submitted && f.description.errors) || (f.description.dirty && f.description.errors)}"
+                    autocomplete="off" id="description">
+                <div *ngIf="f.description.dirty && f.description.errors?.required" class="invalid-feedback">
+                    Description is required
+                </div>
+                <div *ngIf="f.description.dirty && f.description.errors?.maxlength" class="invalid-feedback">
+                    Description character limit exceeded
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <button tye="submit" [disabled]="!notificationForm.valid" class="btn btn-primary">Submit</button>
+            </div>
+
+
+        </form>
+
+
+
+
+
+    </div>

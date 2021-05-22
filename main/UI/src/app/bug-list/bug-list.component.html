@@ -1,0 +1,30 @@
+<div class="container-fluid">
+<div class="mb-3 mt-2">
+    <a class="nav-link" routerLink="/admin" routerLinkActive="active"> <- Back to Admin Console</a>
+</div>
+
+<p-table [value]="bugList">
+    <ng-template pTemplate="header">
+        <tr>
+            <th pSortableColumn="description">Description <p-sortIcon field="description"></p-sortIcon></th>
+            
+            <th pSortableColumn="category">Category <p-sortIcon field="category"></p-sortIcon></th>
+            <th pSortableColumn="severity">Severity <p-sortIcon field="severity"></p-sortIcon></th>
+
+            <th pSortableColumn="userId">Submitted By (userId) <p-sortIcon field="userId"></p-sortIcon></th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-bug>
+        <tr>
+            <td>{{bug.description}}</td>
+            <td>{{bug.category}}</td>
+            <td>{{bug.severity}}</td>
+            <td>{{bug.userId}}</td>
+            <td>{{bug.status==true?"Active":"Inactive"}}</td>
+            <td><button (click)="changeStatus(bug)" *ngIf="bug.status==true" pButton icon="pi pi-check" type="button" label="Bug Fixed" class="p-button-outline p-button-sm p-button-primary mr-2">
+            </button></td>
+        </tr>
+    </ng-template>
+</p-table></div>

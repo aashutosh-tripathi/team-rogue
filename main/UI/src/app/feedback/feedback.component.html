@@ -1,0 +1,52 @@
+<div class="container">
+    <div class="col-md-6">
+        <form (ngSubmit)="onSubmit()" [formGroup]="feedbackForm" novalidate>
+            <div class="form-group mb-4">
+                <label for="description"><strong>Description<span class="text-danger">*</span></strong></label>
+                <input type="text" formControlName="description" class="form-control"
+                    [ngClass]="{'is-valid':(submitted && f.description.errors) || (f.description.dirty && f.description.errors)}"
+                    autocomplete="off" id="description">
+                <div *ngIf="f.description.dirty && f.description.errors?.required" class="invalid-feedback">
+                    Description is required
+                </div>
+                <div *ngIf="f.description.dirty && f.description.errors?.maxlength" class="invalid-feedback">
+                    Description character limit exceeded
+                </div>
+            </div>
+
+
+            <div class="form-group mb-4">
+                <label for="refLink"><strong>Reference Link</strong></label>
+                <input type="text" formControlName="refLink" class="form-control" id="refLink">
+            </div>
+
+            <div class="form-group  mb-4">
+
+                <label for="refLink"><strong>Category</strong></label>
+
+                <p-radioButton class="pr-4" formControlName="category" value="Design" label="Design"
+                    labelStyleClass="labelBold">
+                </p-radioButton>
+
+                <p-radioButton class="pr-4" formControlName="category" value="Features" label="Features"
+                    labelStyleClass="labelBold">
+                </p-radioButton>
+
+                <p-radioButton class="pr-4" formControlName="category" value="Services" label="Services"
+                    labelStyleClass="labelBold">
+                </p-radioButton>
+
+            </div>
+
+            <div class="form-group">
+                <button tye="submit" [disabled]="!feedbackForm.valid" class="btn btn-primary">Submit</button>
+            </div>
+
+
+        </form>
+
+
+
+
+
+    </div>

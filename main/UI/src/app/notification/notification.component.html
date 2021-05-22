@@ -1,0 +1,8 @@
+<p-table [value]="notifications" sortField="createdOn" [sortOrder]="-1">
+    <ng-template pTemplate="body" let-notification>
+        <tr>
+            <td>{{notification.description}}</td>
+            <td>{{notification.createdOn}}</td>
+        </tr>
+    </ng-template>
+</p-table>

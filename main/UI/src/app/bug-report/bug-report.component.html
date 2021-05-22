@@ -1,0 +1,67 @@
+<div class="container">
+    <div class="col-md-6">
+        <form (ngSubmit)="onSubmit()" [formGroup]="bugForm" novalidate>
+            
+
+            <div class="form-group  mb-4">
+
+                <label for="refLink"><strong>Category</strong></label>
+
+                <p-radioButton class="pr-4" formControlName="category" value="UI/UX" label="UI/UX"
+                    labelStyleClass="labelBold">
+                </p-radioButton>
+
+                <p-radioButton class="pr-4" formControlName="category" value="Functional" label="Functional"
+                    labelStyleClass="labelBold">
+                </p-radioButton>
+
+                <p-radioButton class="pr-4" formControlName="category" value="Payment Gateway" label="Payment Gateway"
+                    labelStyleClass="labelBold">
+                </p-radioButton>
+
+            </div>
+
+            <div class="form-group  mb-4">
+
+                <label for="refLink"><strong>Severity</strong></label>
+
+                <p-radioButton class="pr-4" formControlName="severity" value="Low" label="Low"
+                    labelStyleClass="labelBold">
+                </p-radioButton>
+
+                <p-radioButton class="pr-4" formControlName="severity" value="Medium" label="Medium"
+                    labelStyleClass="labelBold">
+                </p-radioButton>
+
+                <p-radioButton class="pr-4" formControlName="severity" value="High" label="High"
+                    labelStyleClass="labelBold">
+                </p-radioButton>
+
+            </div>
+
+
+            <div class="form-group mb-4">
+                <label for="description"><strong>Description<span class="text-danger">*</span></strong></label>
+                <input type="text" formControlName="description" class="form-control"
+                    [ngClass]="{'is-valid':(submitted && f.description.errors) || (f.description.dirty && f.description.errors)}"
+                    autocomplete="off" id="description">
+                <div *ngIf="f.description.dirty && f.description.errors?.required" class="invalid-feedback">
+                    Description is required
+                </div>
+                <div *ngIf="f.description.dirty && f.description.errors?.maxlength" class="invalid-feedback">
+                    Description character limit exceeded
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button tye="submit" [disabled]="!bugForm.valid" class="btn btn-primary">Submit</button>
+            </div>
+
+
+        </form>
+
+
+
+
+
+    </div>

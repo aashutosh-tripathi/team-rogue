@@ -1,0 +1,24 @@
+<div class="container-fluid">
+
+    <div class="mb-3 mt-2">
+        <a class="nav-link" routerLink="/admin" routerLinkActive="active"> <- Back to Admin Console</a>
+    </div>
+    
+<p-table [value]="feedbackList">
+    <ng-template pTemplate="header">
+        <tr>
+            <th pSortableColumn="description">Description <p-sortIcon field="description"></p-sortIcon></th>
+            <th>Reference Link</th>
+            <th pSortableColumn="category">Category <p-sortIcon field="category"></p-sortIcon></th>
+            <th pSortableColumn="userId">Submitted By (userId) <p-sortIcon field="userId"></p-sortIcon></th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-feed>
+        <tr>
+            <td>{{feed.description}}</td>
+            <td><a *ngIf="feed.refLink!=''" href="{{feed.refLink}}">Link</a></td>
+            <td>{{feed.category}}</td>
+            <td>{{feed.userId}}</td>
+        </tr>
+    </ng-template>
+</p-table></div>
